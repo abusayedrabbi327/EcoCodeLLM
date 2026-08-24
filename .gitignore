@@ -1,0 +1,51 @@
+# ============================================================
+# Git Ignore Configuration for EcoCode-LLM Public Showcase
+# ============================================================
+
+# ===== Environment Variables & Secrets (CRITICAL) =====
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# ===== Python & Bytecode =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# ===== Source Code & Execution Scripts (Protected) =====
+/ecocode/
+/app.py
+/gui.py
+/run_ui.py
+*.py
+
+# ===== Research Drafts, Internal Reports & Test Prompts =====
+/paper_sections.md
+/pre_technical_report.md
+/technical_project_report.md
+/demo_test_prompts_and_codes.md
+/DIAGRAMS.md
+
+# ===== Test Suites, Benchmarks & Outputs =====
+/tests/
+/benchmarks/
+/outputs/
+
+# ===== IDE & OS Artifacts =====
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

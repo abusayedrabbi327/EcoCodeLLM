@@ -1,0 +1,44 @@
+# ============================================================
+# EcoCode-LLM Configuration
+# A Green AI Framework for Energy-Efficient Code Generation
+# ============================================================
+
+# ===== LLM Settings =====
+llm:
+  provider: "openrouter"         # openrouter | openai | gemini | ollama
+  model: "openai/gpt-oss-20b:free" # Model identifier
+  reasoning_enabled: true       # Enable reasoning for models supporting reasoning details
+  temperature: 0.7              # Sampling temperature for diversity
+  max_tokens: 2048              # Max response length per candidate
+  num_candidates: 5             # N = number of variants to generate
+  api_url: "https://openrouter.ai/api/v1/chat/completions"
+  system_prompt: >
+    You are an expert Python programmer. Generate only the function
+    implementation as clean, executable Python code. Do not include
+    explanations, markdown formatting, or code fences. Only output
+    the raw Python code.
+
+# ===== Testing Settings =====
+testing:
+  timeout_seconds: 10           # Max execution time per candidate
+  num_runs: 3                   # Repeat each profile run for averaging
+  max_memory_mb: 512            # Memory cap per subprocess
+
+# ===== Profiler Settings =====
+profiler:
+  energy_method: "estimation"   # "rapl" (Linux + Intel) or "estimation" (cross-platform)
+  cpu_tdp_watts: 15             # Your CPU's TDP for estimation fallback
+  num_cores: 4                  # Number of CPU cores (used in estimation)
+  warmup_runs: 1                # Warmup runs before actual measurement
+
+# ===== Decision Engine Weights (must sum to 1.0) =====
+weights:
+  energy: 0.50
+  time: 0.35
+  memory: 0.15
+
+# ===== Output Settings =====
+output:
+  save_all_candidates: true     # Keep all generated code variants
+  report_format: "json"         # json | html
+  verbose: true                 # Show detailed profiling output

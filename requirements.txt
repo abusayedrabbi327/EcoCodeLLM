@@ -1,0 +1,24 @@
+# ===== Core LLM Integration =====
+openai>=1.30.0              # OpenAI API client for code generation
+python-dotenv>=1.0.0        # Load .env file for API keys
+
+# ===== Profiling =====
+psutil>=5.9.0               # System-level memory and process monitoring
+
+# ===== AST & Code Processing =====
+astor>=0.8.1                # AST-to-source fallback for pretty printing
+
+# ===== Data & Math =====
+numpy>=1.24.0               # Numerical operations, normalization
+pyyaml>=6.0                 # YAML config file parsing
+
+# ===== CLI & Display =====
+rich>=13.0.0                # Beautiful terminal output (tables, syntax, progress)
+click>=8.1.0                # CLI argument parsing
+
+# ===== Testing (Dev) =====
+pytest>=7.4.0               # Running framework's own unit tests
+
+# ===== Web UI =====
+streamlit>=1.36.0           # Browser-based UI for running EcoCode
+python-dotenv>=1.0.0        # Load .env values for the UI

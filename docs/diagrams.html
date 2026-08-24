@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoCode-LLM — Project Diagrams</title>
+  <meta name="description" content="Visual diagrams for EcoCode-LLM: a Green AI Framework for Energy-Efficient Code Generation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg-deep:    #070d0f;
+      --bg-card:    #0d1a1c;
+      --bg-card2:   #101f22;
+      --border:     #1a3a3e;
+      --green:      #00e5a0;
+      --teal:       #00c9d4;
+      --lime:       #7fff5f;
+      --amber:      #ffb84d;
+      --red:        #ff6b6b;
+      --violet:     #a78bfa;
+      --fg:         #e8f5f0;
+      --fg2:        #7aa88a;
+      --fg3:        #4a6b58;
+      --glow:       0 0 30px rgba(0,229,160,.15);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:var(--bg-deep);color:var(--fg);min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background:
+      radial-gradient(ellipse 80% 50% at 20% 10%,rgba(0,229,160,.04) 0%,transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%,rgba(0,201,212,.05) 0%,transparent 60%);
+      pointer-events:none;z-index:0}
+
+    /* ── Header ── */
+    header{position:relative;z-index:10;text-align:center;padding:60px 24px 40px;
+      border-bottom:1px solid var(--border);
+      background:linear-gradient(180deg,rgba(0,229,160,.03) 0%,transparent 100%)}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,160,.08);
+      border:1px solid rgba(0,229,160,.25);border-radius:100px;padding:6px 16px;
+      font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      color:var(--green);margin-bottom:20px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+    header h1{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.15;margin-bottom:12px;
+      background:linear-gradient(135deg,var(--green) 0%,var(--teal) 50%,var(--lime) 100%);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    header p{color:var(--fg2);font-size:16px;max-width:600px;margin:0 auto;line-height:1.6}
+
+    /* ── Tabs ── */
+    .tab-nav{position:relative;z-index:10;display:flex;justify-content:center;
+      gap:8px;padding:28px 24px;flex-wrap:wrap}
+    .tab-btn{cursor:pointer;padding:10px 24px;border-radius:10px;border:1px solid var(--border);
+      background:var(--bg-card);color:var(--fg2);font-family:'Inter',sans-serif;font-size:14px;
+      font-weight:600;letter-spacing:.02em;transition:all .25s;position:relative;overflow:hidden}
+    .tab-btn::before{content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,var(--green),var(--teal));opacity:0;transition:opacity .25s}
+    .tab-btn span{position:relative;z-index:1}
+    .tab-btn:hover{border-color:rgba(0,229,160,.4);color:var(--green)}
+    .tab-btn.active{border-color:var(--green);color:var(--bg-deep);box-shadow:0 4px 24px rgba(0,229,160,.3)}
+    .tab-btn.active::before{opacity:1}
+
+    /* ── Layout ── */
+    main{position:relative;z-index:10;max-width:1300px;margin:0 auto;padding:0 24px 80px}
+    .diagram-section{display:none}
+    .diagram-section.active{display:block;animation:fadeIn .4s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    .section-header{text-align:center;margin-bottom:40px}
+    .section-title{font-size:clamp(20px,3vw,30px);font-weight:700;color:var(--fg);margin-bottom:8px}
+    .section-title em{font-style:normal;color:var(--green)}
+    .section-subtitle{color:var(--fg2);font-size:14px}
+
+    /* ── Mermaid box ── */
+    .mermaid-wrap{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+      padding:40px 32px;box-shadow:var(--glow);overflow:auto;min-height:120px}
+    .mermaid{display:flex;justify-content:center}
+
+    /* ── Phase cards ── */
+    .fw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:32px}
+    .fw-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;
+      padding:24px;transition:all .3s;position:relative;overflow:hidden}
+    .fw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
+    .fw-card.c1::before{background:linear-gradient(90deg,var(--green),var(--teal))}
+    .fw-card.c2::before{background:linear-gradient(90deg,var(--teal),var(--violet))}
+    .fw-card.c3::before{background:linear-gradient(90deg,var(--violet),var(--green))}
+    .fw-card.c4::before{background:linear-gradient(90deg,var(--amber),var(--red))}
+    .fw-card.c5::before{background:linear-gradient(90deg,var(--lime),var(--teal))}
+    .fw-card:hover{border-color:rgba(0,229,160,.3);transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(0,0,0,.4),var(--glow)}
+    .fw-icon{font-size:26px;margin-bottom:10px;display:block}
+    .fw-num{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:6px}
+    .fw-card h3{font-size:15px;font-weight:700;color:var(--fg);margin-bottom:8px}
+    .fw-card p{font-size:13px;color:var(--fg2);line-height:1.6}
+    .fw-card ul{margin-top:8px;padding-left:16px}
+    .fw-card ul li{font-size:12px;color:var(--fg2);line-height:1.7}
+    .fw-card ul li::marker{color:var(--green)}
+
+    /* ── Legend ── */
+    .legend{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}
+    .legend-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--fg2)}
+    .legend-dot{width:12px;height:12px;border-radius:3px}
+
+    /* ── Weight badges ── */
+    .weight-row{display:flex;justify-content:center;gap:20px;margin-top:32px;flex-wrap:wrap}
+    .wb{background:var(--bg-card2);border:1px solid var(--border);border-radius:12px;
+      padding:14px 22px;text-align:center;min-width:130px}
+    .wb .m{font-size:12px;color:var(--fg3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+    .wb .v{font-size:26px;font-weight:800;font-family:'JetBrains Mono',monospace}
+    .wb.e .v{color:var(--green)} .wb.t .v{color:var(--teal)} .wb.m2 .v{color:var(--amber)}
+
+    footer{position:relative;z-index:10;text-align:center;padding:24px;
+      border-top:1px solid var(--border);color:var(--fg3);font-size:12px}
+    footer span{color:var(--green)}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="badge"><span class="dot"></span> Research Project &middot; UIU Green Computing</div>
+  <h1>🌿 EcoCode-LLM<br/>Project Diagrams</h1>
+  <p>Visual documentation of the Green AI Framework for Energy-Efficient Code Generation</p>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn active" onclick="showTab('framework')"    id="tab-framework"    role="tab"><span>📐 Proposed Framework</span></button>
+  <button class="tab-btn"        onclick="showTab('architecture')" id="tab-architecture" role="tab"><span>🏛️ System Architecture</span></button>
+  <button class="tab-btn"        onclick="showTab('flowchart')"    id="tab-flowchart"    role="tab"><span>🔄 Flowchart</span></button>
+</nav>
+
+<main>
+
+  <!-- ═══════════════════════════════════════
+       TAB 1 — PROPOSED FRAMEWORK
+       ═══════════════════════════════════════ -->
+  <section class="diagram-section active" id="sec-framework">
+    <div class="section-header">
+      <h2 class="section-title">Proposed <em>Framework / Methodology</em></h2>
+      <p class="section-subtitle">Five-phase pipeline from problem input to energy-optimal code output</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <pre class="mermaid" id="d-framework">
+flowchart TD
+    A(["Problem Input"]) --> B{{"Select Mode"}}
+
+    B -- "Mode 1 - Generate and Select" --> C1["LLM Generation\nN Candidates via GPT-4o"]
+    B -- "Mode 2 - Analyze and Rewrite" --> C2["Existing Code Input"]
+
+    C1 --> D1["Correctness Testing\nSandbox Execution"]
+    C2 --> D2["AST Parsing\nand Pattern Detection"]
+
+    D1 -->|Pass| E1["Valid Candidates Pool"]
+    D1 -->|Fail| X1(["Discard"])
+    D2 --> E2["AST Refactoring\nRule-Based Engine"]
+
+    E1 --> F["Multi-Metric Profiling"]
+    E2 --> V["Validate Rewritten Code"]
+    V -->|Pass| F
+    V -->|Fail| RB(["Rollback to Original"])
+
+    F --> G1["Time Profiler\nperf_counter_ns"]
+    F --> G2["Memory Profiler\ntracemalloc"]
+    F --> G3["Energy Profiler\nRAEPL / TDP estimate"]
+
+    G1 & G2 & G3 --> H["TOPSIS Decision Engine\nWeighted Multi-Criteria Scoring"]
+    H --> I(["Optimal Code Output\nMinimum Energy Footprint"])
+
+    style A   fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+    style B   fill:#112030,stroke:#00c9d4,color:#00c9d4
+    style C1  fill:#0d1f2d,stroke:#00c9d4,color:#e8f5f0
+    style C2  fill:#0d1f2d,stroke:#00c9d4,color:#e8f5f0
+    style D1  fill:#0d1f2d,stroke:#7fff5f,color:#e8f5f0
+    style D2  fill:#0d1f2d,stroke:#7fff5f,color:#e8f5f0
+    style E1  fill:#0a2a18,stroke:#7fff5f,color:#7fff5f
+    style E2  fill:#0d1f2d,stroke:#a78bfa,color:#e8f5f0
+    style V   fill:#0d1f2d,stroke:#7fff5f,color:#e8f5f0
+    style F   fill:#112030,stroke:#ffb84d,color:#ffb84d
+    style G1  fill:#0d1a1c,stroke:#00e5a0,color:#e8f5f0
+    style G2  fill:#0d1a1c,stroke:#00e5a0,color:#e8f5f0
+    style G3  fill:#0d1a1c,stroke:#00e5a0,color:#e8f5f0
+    style H   fill:#1a1030,stroke:#a78bfa,color:#a78bfa
+    style I   fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+    style X1  fill:#2a1010,stroke:#ff6b6b,color:#ff6b6b
+    style RB  fill:#2a1010,stroke:#ff6b6b,color:#ff6b6b
+      </pre>
+    </div>
+
+    <div class="fw-grid">
+      <div class="fw-card c1">
+        <span class="fw-icon">📥</span>
+        <div class="fw-num">Phase 1</div>
+        <h3>Problem Input</h3>
+        <p>User defines the task via a natural language prompt (Mode 1) or supplies an existing Python source file (Mode 2).</p>
+      </div>
+      <div class="fw-card c2">
+        <span class="fw-icon">🤖</span>
+        <div class="fw-num">Phase 2</div>
+        <h3>Code Generation / Parsing</h3>
+        <p>Mode 1 calls GPT-4o for N code variants. Mode 2 parses source into an AST and detects energy anti-patterns.</p>
+        <ul>
+          <li>Quadratic nested loops</li>
+          <li>String concatenation in loops</li>
+          <li>Unoptimised list operations</li>
+        </ul>
+      </div>
+      <div class="fw-card c3">
+        <span class="fw-icon">🧪</span>
+        <div class="fw-num">Phase 3</div>
+        <h3>Correctness Validation</h3>
+        <p>Every candidate runs in an isolated sandbox against a JSON test suite. Only passing candidates advance.</p>
+      </div>
+      <div class="fw-card c4">
+        <span class="fw-icon">📊</span>
+        <div class="fw-num">Phase 4</div>
+        <h3>Multi-Metric Profiling</h3>
+        <p>Each valid candidate is profiled across three dimensions with subprocess isolation.</p>
+        <ul>
+          <li>Time — perf_counter_ns</li>
+          <li>Memory — tracemalloc</li>
+          <li>Energy — RAPL / TDP estimate</li>
+        </ul>
+      </div>
+      <div class="fw-card c5">
+        <span class="fw-icon">🏆</span>
+        <div class="fw-num">Phase 5</div>
+        <h3>TOPSIS Decision</h3>
+        <p>Weighted multi-criteria scoring selects the energy-optimal candidate. Lower score = better energy efficiency.</p>
+      </div>
+    </div>
+
+    <div class="weight-row">
+      <div class="wb e"><div class="m">Energy Weight</div><div class="v">50%</div></div>
+      <div class="wb t"><div class="m">Time Weight</div><div class="v">35%</div></div>
+      <div class="wb m2"><div class="m">Memory Weight</div><div class="v">15%</div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TAB 2 — SYSTEM ARCHITECTURE
+       ═══════════════════════════════════════ -->
+  <section class="diagram-section" id="sec-architecture">
+    <div class="section-header">
+      <h2 class="section-title">System <em>Architecture</em></h2>
+      <p class="section-subtitle">Module-level view of the EcoCode-LLM software stack</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <pre class="mermaid" id="d-architecture">
+flowchart TD
+    subgraph UI["Interface Layer"]
+        CLI["CLI - main.py\n--mode --prompt --input-file"]
+        GUI["GUI - gui.py\nTkinter Desktop App"]
+    end
+
+    subgraph M1["Mode 1 - Generate and Select"]
+        GEN["generator.py\nOpenAI GPT-4o API"]
+        POOL["solution_pool.py\nCandidate pool manager"]
+        SEL["selector.py\nPipeline orchestrator"]
+    end
+
+    subgraph M2["Mode 2 - Analyze and Rewrite"]
+        PARSE["ast_parser.py\nPython AST builder"]
+        DETECT["pattern_detector.py\nAnti-pattern detector"]
+        REFAC["refactoring_rules.py\nAST Transformations"]
+        RECON["code_reconstructor.py\nastunparse to source"]
+    end
+
+    subgraph TEST["Testing Layer"]
+        SAND["sandbox.py\nIsolated subprocess"]
+        TRUN["test_runner.py\nJSON test runner"]
+    end
+
+    subgraph PROF["Profiling Layer"]
+        TP["time_profiler.py\nperf_counter_ns"]
+        MP["memory_profiler.py\ntracemalloc peak KB"]
+        EP["energy_profiler.py\nRAEPL / TDP Joules"]
+        AGG["profile_aggregator.py\nMerge into ProfileResult"]
+    end
+
+    subgraph DE["Decision Engine"]
+        NORM["normalizer.py\nMin-Max scaling"]
+        TOPS["topsis_scorer.py\nWeighted sum score"]
+        RANK["ranking.py\nSelect winner"]
+    end
+
+    subgraph UTILS["Utilities"]
+        CFG["config_loader.py"]
+        LOG["logger.py"]
+        FU["file_utils.py"]
+        DISP["display.py"]
+    end
+
+    subgraph OUT["Outputs"]
+        RPT["EvaluationReport JSON"]
+        CODE["Optimized Code .py"]
+    end
+
+    CLI --> SEL
+    CLI --> PARSE
+    GUI --> SEL
+    GUI --> PARSE
+
+    SEL --> GEN --> POOL
+    POOL --> TRUN --> SAND
+    POOL --> AGG
+
+    PARSE --> DETECT --> REFAC --> RECON --> TRUN
+
+    AGG --> TP
+    AGG --> MP
+    AGG --> EP
+    AGG --> NORM
+
+    NORM --> TOPS --> RANK
+    RANK --> RPT
+    RANK --> CODE
+
+    UTILS --> CLI
+    UTILS --> SEL
+    UTILS --> AGG
+    UTILS --> NORM
+
+    style UI   fill:#0d1a1c,stroke:#00c9d4,color:#00c9d4
+    style M1   fill:#0d1f2a,stroke:#00c9d4,color:#00c9d4
+    style M2   fill:#0d1a2a,stroke:#a78bfa,color:#a78bfa
+    style TEST fill:#0d2a1a,stroke:#7fff5f,color:#7fff5f
+    style PROF fill:#1a1f0d,stroke:#ffb84d,color:#ffb84d
+    style DE   fill:#1a0d2a,stroke:#a78bfa,color:#a78bfa
+    style UTILS fill:#1a1a1a,stroke:#4a6b58,color:#7aa88a
+    style OUT  fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+      </pre>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#00c9d4"></div> Interface</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00c9d4"></div> Mode 1</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Mode 2</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7fff5f"></div> Testing</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ffb84d"></div> Profiler</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div> Decision Engine</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4a6b58"></div> Utilities</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#00e5a0"></div> Output</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TAB 3 — FLOWCHART
+       ═══════════════════════════════════════ -->
+  <section class="diagram-section" id="sec-flowchart">
+    <div class="section-header">
+      <h2 class="section-title">End-to-End <em>Flowchart</em></h2>
+      <p class="section-subtitle">Detailed execution flow with all decision branches and error paths</p>
+    </div>
+
+    <div class="mermaid-wrap">
+      <pre class="mermaid" id="d-flowchart">
+flowchart TD
+    START(["START"]) --> LOADCFG["Load config.yaml\nParse CLI args"]
+    LOADCFG --> MODESEL{{"Mode 1?"}}
+
+    MODESEL -- Yes --> CHK_P{"Prompt\nprovided?"}
+    CHK_P -- No  --> ERR1(["Error: prompt required"])
+    CHK_P -- Yes --> M1_GEN["Call OpenAI API\nGenerate N variants"]
+    M1_GEN --> CHK_API{"API OK?"}
+    CHK_API -- No  --> ERR2(["Error: LLM failed"])
+    CHK_API -- Yes --> LOAD_TC["Load JSON test cases"]
+    LOAD_TC --> LOOP[/"For each candidate"/]
+    LOOP --> SANDBOX["Execute in sandbox"]
+    SANDBOX --> CHK_TEST{"Tests pass?"}
+    CHK_TEST -- No  --> DISCARD["Mark invalid"]
+    CHK_TEST -- Yes --> VALID["Add to valid pool"]
+    DISCARD --> CHK_MORE{{"More?"}}
+    VALID   --> CHK_MORE
+    CHK_MORE -- Yes --> LOOP
+    CHK_MORE -- No  --> CHK_EMPTY{"Pool empty?"}
+    CHK_EMPTY -- Yes --> ERR3(["No valid candidates"])
+    CHK_EMPTY -- No  --> PROFILE
+
+    MODESEL -- No  --> CHK_FILE{"File\nprovided?"}
+    CHK_FILE -- No  --> ERR4(["Error: file required"])
+    CHK_FILE -- Yes --> READ_SRC["Read source file"]
+    READ_SRC --> RUN_ORIG["Run original vs tests"]
+    RUN_ORIG --> CHK_ORIG{"Passes?"}
+    CHK_ORIG -- No  --> ERR5(["Original fails tests"])
+    CHK_ORIG -- Yes --> DO_AST["Parse to AST"]
+    DO_AST --> CHK_PARSE{"Parse OK?"}
+    CHK_PARSE -- No  --> ERR6(["Syntax error"])
+    CHK_PARSE -- Yes --> DETECT["Detect anti-patterns\nnested loops, str concat"]
+    DETECT --> CHK_PATT{"Patterns\nfound?"}
+    CHK_PATT -- No  --> NOOP["Code already efficient\nProfile original only"]
+    NOOP --> END2(["Done"])
+    CHK_PATT -- Yes --> REFAC["Apply AST refactoring"]
+    REFAC --> RECON["Reconstruct source"]
+    RECON --> VAL_RW["Validate rewritten code"]
+    VAL_RW --> CHK_RW{"Passes?"}
+    CHK_RW -- No  --> ROLLBK["Rollback to original"]
+    ROLLBK --> END2
+    CHK_RW -- Yes --> CMPPOOL["Comparison pool\nOriginal + Rewritten"]
+    CMPPOOL --> PROFILE
+
+    PROFILE["Profile all candidates\nisolated subprocesses"]
+    PROFILE --> PT["Time Profiler\nperf_counter_ns"]
+    PROFILE --> PM["Memory Profiler\ntracemalloc"]
+    PROFILE --> PE["Energy Profiler\nRAEPL or TDP method"]
+    PT & PM & PE --> PAGG["Aggregate ProfileResult\nper candidate"]
+    PAGG --> PNORM["Min-Max Normalise\neach metric 0 to 1"]
+    PNORM --> PTOPSIS["TOPSIS Score\nS = 0.50 E + 0.35 T + 0.15 M"]
+    PTOPSIS --> PRANK["Rank candidates\nAscending score"]
+    PRANK --> WINNER["Select Winner\nLowest TOPSIS score"]
+    WINNER --> SAVE["Save optimized code\nand JSON report"]
+    SAVE --> DONE(["END - Optimal Code Ready"])
+
+    style START   fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+    style DONE    fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+    style MODESEL fill:#112030,stroke:#00c9d4,color:#00c9d4
+    style CHK_P   fill:#112030,stroke:#00c9d4,color:#e8f5f0
+    style CHK_API fill:#112030,stroke:#ff6b6b,color:#e8f5f0
+    style CHK_TEST fill:#0d1a2a,stroke:#7fff5f,color:#e8f5f0
+    style CHK_MORE fill:#0d1a2a,stroke:#00c9d4,color:#e8f5f0
+    style CHK_EMPTY fill:#0d1a2a,stroke:#ff6b6b,color:#e8f5f0
+    style CHK_FILE fill:#112030,stroke:#a78bfa,color:#a78bfa
+    style CHK_ORIG fill:#0d1a2a,stroke:#7fff5f,color:#e8f5f0
+    style CHK_PARSE fill:#0d1a2a,stroke:#7fff5f,color:#e8f5f0
+    style CHK_PATT fill:#0d1a2a,stroke:#ffb84d,color:#e8f5f0
+    style CHK_RW   fill:#0d1a2a,stroke:#7fff5f,color:#e8f5f0
+    style PROFILE  fill:#1a1f0d,stroke:#ffb84d,color:#ffb84d
+    style PTOPSIS  fill:#1a0d2a,stroke:#a78bfa,color:#a78bfa
+    style WINNER   fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+    style ERR1 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ERR2 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ERR3 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ERR4 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ERR5 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ERR6 fill:#2a0d0d,stroke:#ff6b6b,color:#ff6b6b
+    style ROLLBK fill:#2a1a0d,stroke:#ffb84d,color:#ffb84d
+    style END2   fill:#0d2e22,stroke:#00e5a0,color:#00e5a0
+      </pre>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  🌿 EcoCode-LLM &nbsp;&middot;&nbsp; UIU Green Computing &nbsp;&middot;&nbsp; Built with <span>♥</span> for Sustainable AI
+</footer>
+
+<script>
+  // ── Tab switching with lazy Mermaid re-render ──────────────────────────────
+  const rendered = new Set(['framework']); // framework is visible at load = auto-rendered
+
+  function showTab(name) {
+    ['framework','architecture','flowchart'].forEach(k => {
+      document.getElementById('sec-' + k).classList.toggle('active', k === name);
+      document.getElementById('tab-' + k).classList.toggle('active', k === name);
+    });
+
+    // Re-run Mermaid on newly visible diagrams that haven't rendered yet
+    if (!rendered.has(name)) {
+      rendered.add(name);
+      const el = document.getElementById('d-' + name);
+      if (el) {
+        el.removeAttribute('data-processed');
+        mermaid.run({ nodes: [el] });
+      }
+    }
+  }
+
+  // ── Mermaid global config ──────────────────────────────────────────────────
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor:        '#0d1a1c',
+      primaryTextColor:    '#e8f5f0',
+      primaryBorderColor:  '#00e5a0',
+      lineColor:           '#00c9d4',
+      secondaryColor:      '#0d1f2d',
+      tertiaryColor:       '#1a1030',
+      background:          '#070d0f',
+      mainBkg:             '#0d1a1c',
+      nodeBorder:          '#00e5a0',
+      clusterBkg:          '#0d1a1c',
+      titleColor:          '#00e5a0',
+      edgeLabelBackground: '#0d1a1c',
+      fontFamily:          'Inter, sans-serif',
+      fontSize:            '13px',
+    },
+    flowchart: { curve: 'basis', padding: 20, useMaxWidth: true },
+    securityLevel: 'loose',
+  });
+</script>
+</body>
+</html>
