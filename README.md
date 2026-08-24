@@ -77,4 +77,6 @@ python tests/test_refactoring_rules.py
 
 ## License
 
-Research project — UIU Green Computing Course.
+Copyright (c) 2026 Abu Sayed Rabbi. All Rights Reserved.
+
+This project is governed under a **Strict Academic Research & Proprietary License**. It is strictly intended for academic review and research reference. Unauthorized copying, redistribution, modification, or commercial exploitation is strictly prohibited without prior written consent. See [LICENSE](LICENSE) for full details.
