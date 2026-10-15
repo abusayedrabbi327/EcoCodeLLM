@@ -236,7 +236,7 @@ EcoCodeLLM/
 
 ---
 
-## 📜 Academic Citation & Attribution
+<!-- ## 📜 Academic Citation & Attribution
 
 If you use EcoCode-LLM in your academic research or reference its methodology, please cite:
 
@@ -246,7 +246,7 @@ If you use EcoCode-LLM in your academic research or reference its methodology, p
   author={Rabbi, Abu Sayed and Samiha, Maisha and Islam, Md. Motaharul},
   journal={Department of Computer Science and Engineering, United International University},
   year={2026}
-}
+} -->
 ```
 
 ---
