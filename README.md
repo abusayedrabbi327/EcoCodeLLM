@@ -13,15 +13,22 @@ EcoCode-LLM is an automated framework that ensures AI-generated code is not just
 
 ## Quick Start
 
+### 🔬 Empirical Replication & Paper Artifacts
+To verify all experimental findings, mathematical TOPSIS scores, and regenerate paper figures/tables from raw Linux Intel RAPL telemetry:
+```bash
+python 01_product_codebase/export_all_artifacts_for_paper.py
+```
+👉 **See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for full instructions, live RAPL profiling requirements, and hardware testbed specifications.**
+
 ### 1. Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install -r 01_product_codebase/requirements.txt
 ```
 
-### 2. Set Up API Key (Mode 1 only)
+### 2. Set Up API Key (Mode 1 live generation only)
 ```bash
-cp .env.example .env
-# Edit .env and add your OpenAI API key
+cp 01_product_codebase/.env.example 01_product_codebase/.env
+# Edit .env with your OpenRouter/OpenAI API key
 ```
 
 ### 3. Run Mode 1 — Generate & Select

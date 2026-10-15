@@ -1,0 +1,47 @@
+# ============================================================
+# EcoCode-LLM Configuration
+# A Green AI Framework for Energy-Efficient Code Generation
+# ============================================================
+
+# ===== LLM Settings =====
+llm:
+  provider: "openrouter"         # openrouter | openai
+  model: "qwen/qwen3.8-27b:free" # Primary free OpenRouter coding model
+  fallback_models:               # Tried in order if the primary is unavailable
+    - "cohere/north-mini-code:free"
+    - "openrouter/free"          # OpenRouter automatic free-model route
+  reasoning_enabled: false       # Qwen can generate directly for this short-code workflow
+  temperature: 0.4              # Lower variance improves executable code reliability
+  max_tokens: 2048              # Max response length per candidate
+  num_candidates: 5             # N = number of variants to generate
+  api_url: "https://openrouter.ai/api/v1/chat/completions"
+  system_prompt: >
+    You are an expert Python programmer. Generate exactly one complete
+    Python function definition, including its def line. Return clean,
+    executable Python code only. Do not include explanations, markdown
+    formatting, code fences, or a test harness.
+
+# ===== Testing Settings =====
+testing:
+  timeout_seconds: 10           # Max execution time per candidate
+  num_runs: 3                   # Repeat each profile run for averaging
+  max_memory_mb: 512            # Memory cap per subprocess
+
+# ===== Profiler Settings =====
+profiler:
+  energy_method: "estimation"   # "rapl" (Linux + Intel) or "estimation" (cross-platform)
+  cpu_tdp_watts: 15             # Your CPU's TDP for estimation fallback
+  num_cores: 4                  # Number of CPU cores (used in estimation)
+  warmup_runs: 1                # Warmup runs before actual measurement
+
+# ===== Decision Engine Weights (must sum to 1.0) =====
+weights:
+  energy: 0.50
+  time: 0.35
+  memory: 0.15
+
+# ===== Output Settings =====
+output:
+  save_all_candidates: true     # Keep all generated code variants
+  report_format: "json"         # json | html
+  verbose: true                 # Show detailed profiling output

@@ -1,0 +1,27 @@
+{
+  "problem_id": "03_find_duplicates",
+  "function_name": "find_duplicates",
+  "description": "Given a list of integers, return a sorted list of all duplicate elements.",
+  "test_cases": [
+    {
+      "input": {"nums": [1, 2, 3, 2, 1, 4]},
+      "expected_output": [1, 2]
+    },
+    {
+      "input": {"nums": [1, 2, 3, 4, 5]},
+      "expected_output": []
+    },
+    {
+      "input": {"nums": [5, 5, 5, 5]},
+      "expected_output": [5]
+    },
+    {
+      "input": {"nums": []},
+      "expected_output": []
+    },
+    {
+      "input": {"nums": [10, 20, 10, 30, 20, 40, 30]},
+      "expected_output": [10, 20, 30]
+    }
+  ]
+}

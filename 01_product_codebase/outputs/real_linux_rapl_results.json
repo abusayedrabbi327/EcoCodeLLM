@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "os_name": "Linux",
+    "os_release": "6.8.11+kali-amd64",
+    "os_version": "#1 SMP PREEMPT_DYNAMIC Kali 6.8.11-1kali1 (2026-07-29)",
+    "python_version": "3.12.1",
+    "cpu_model": "Intel(R) Core(TM) i3-7020U CPU @ 2.30GHz",
+    "cpu_cores_physical": 4,
+    "cpu_threads_logical": 4,
+    "total_ram_gb": 3.71,
+    "rapl_supported": true,
+    "rapl_max_range_uj": 262143328850,
+    "os_pretty_name": "Kali GNU/Linux Rolling"
+  },
+  "idle_power_watts": 0.9175468651852507,
+  "mode1_candidates": {
+    "P01": {
+      "C1.1": {
+        "time_ms": 0.0156,
+        "time_sd": 0.0015,
+        "time_ci95": 0.0009,
+        "memory_kb": 133.2335,
+        "memory_sd": 0.0745,
+        "memory_ci95": 0.0462,
+        "energy_uj": 61.0126,
+        "energy_sd": 21.1066,
+        "energy_ci95": 13.082,
+        "amplification_k": 1544
+      },
+      "C1.2": {
+        "time_ms": 0.0273,
+        "time_sd": 0.0008,
+        "time_ci95": 0.0005,
+        "memory_kb": 133.083,
+        "memory_sd": 0.0,
+        "memory_ci95": 0.0,
+        "energy_uj": 89.184,
+        "energy_sd": 5.9716,
+        "energy_ci95": 3.7012,
+        "amplification_k": 6846
+      },
+      "C1.3": {
+        "time_ms": 0.2708,
+        "time_sd": 0.005,
+        "time_ci95": 0.0031,
+        "memory_kb": 133.083,
+        "memory_sd": 0.0,
+        "memory_ci95": 0.0,
+        "energy_uj": 827.6502,
+        "energy_sd": 67.6678,
+        "energy_ci95": 41.9409,
+        "amplification_k": 923
+      }
+    },
+    "P02": {
+      "C2.1": {
+        "time_ms": 0.0023,
+        "time_sd": 0.0005,
+        "time_ci95": 0.0003,
+        "memory_kb": 133.083,
+        "memory_sd": 0.0,
+        "memory_ci95": 0.0,
+        "energy_uj": 7.8007,
+        "energy_sd": 4.3283,
+        "energy_ci95": 2.6827,
+        "amplification_k": 45405
+      },
+      "C2.2": {
+        "time_ms": 0.0128,
+        "time_sd": 0.0003,
+        "time_ci95": 0.0002,
+        "memory_kb": 133.0924,
+        "memory_sd": 0.0211,
+        "memory_ci95": 0.0131,
+        "energy_uj": 46.2589,
+        "energy_sd": 3.8343,
+        "energy_ci95": 2.3765,
+        "amplification_k": 6913
+      },
+      "C2.3": {
+        "time_ms": 0.0065,
+        "time_sd": 0.0003,
+        "time_ci95": 0.0002,
+        "memory_kb": 133.0662,
+        "memory_sd": 0.0399,
+        "memory_ci95": 0.0248,
+        "energy_uj": 19.7539,
+        "energy_sd": 2.5332,
+        "energy_ci95": 1.5701,
+        "amplification_k": 23058
+      }
+    },
+    "P03": {
+      "C3.1": {
+        "time_ms": 0.0089,
+        "time_sd": 0.0002,
+        "time_ci95": 0.0001,
+        "memory_kb": 133.1072,
+        "memory_sd": 0.0766,
+        "memory_ci95": 0.0475,
+        "energy_uj": 29.6526,
+        "energy_sd": 1.7434,
+        "energy_ci95": 1.0805,
+        "amplification_k": 17215
+      },
+      "C3.2": {
+        "time_ms": 0.004,
+        "time_sd": 0.0001,
+        "time_ci95": 0.0001,
+        "memory_kb": 133.0893,
+        "memory_sd": 0.0198,
+        "memory_ci95": 0.0122,
+        "energy_uj": 13.0949,
+        "energy_sd": 1.255,
+        "energy_ci95": 0.7778,
+        "amplification_k": 17936
+      },
+      "C3.3": {
+        "time_ms": 0.146,
+        "time_sd": 0.0033,
+        "time_ci95": 0.002,
+        "memory_kb": 133.0893,
+        "memory_sd": 0.0198,
+        "memory_ci95": 0.0122,
+        "energy_uj": 440.4835,
+        "energy_sd": 32.1504,
+        "energy_ci95": 19.927,
+        "amplification_k": 1700
+      }
+    }
+  },
+  "mode2_standalone": {
+    "R001_membership": {
+      "unoptimized": {
+        "time_ms": 0.1798,
+        "time_sd": 0.001,
+        "time_ci95": 0.0006,
+        "memory_kb": 133.0899,
+        "memory_sd": 0.087,
+        "memory_ci95": 0.0539,
+        "energy_uj": 549.1586,
+        "energy_sd": 25.2305,
+        "energy_ci95": 15.638,
+        "amplification_k": 1056
+      },
+      "refactored": {
+        "time_ms": 0.0116,
+        "time_sd": 0.0004,
+        "time_ci95": 0.0003,
+        "memory_kb": 133.0547,
+        "memory_sd": 0.0309,
+        "memory_ci95": 0.0192,
+        "energy_uj": 38.3263,
+        "energy_sd": 4.2382,
+        "energy_ci95": 2.6269,
+        "amplification_k": 15379
+      }
+    },
+    "R002_string_concat": {
+      "unoptimized": {
+        "time_ms": 0.0853,
+        "time_sd": 0.0008,
+        "time_ci95": 0.0005,
+        "memory_kb": 133.0547,
+        "memory_sd": 0.0309,
+        "memory_ci95": 0.0192,
+        "energy_uj": 274.9965,
+        "energy_sd": 4.8172,
+        "energy_ci95": 2.9857,
+        "amplification_k": 11212
+      },
+      "refactored": {
+        "time_ms": 0.0654,
+        "time_sd": 0.0005,
+        "time_ci95": 0.0003,
+        "memory_kb": 133.0547,
+        "memory_sd": 0.0309,
+        "memory_ci95": 0.0192,
+        "energy_uj": 217.5915,
+        "energy_sd": 5.5127,
+        "energy_ci95": 3.4168,
+        "amplification_k": 8955
+      }
+    },
+    "R003_aggregation": {
+      "unoptimized": {
+        "time_ms": 0.0323,
+        "time_sd": 0.0038,
+        "time_ci95": 0.0024,
+        "memory_kb": 133.1203,
+        "memory_sd": 0.0288,
+        "memory_ci95": 0.0179,
+        "energy_uj": 98.0063,
+        "energy_sd": 9.8012,
+        "energy_ci95": 6.0748,
+        "amplification_k": 26525
+      },
+      "refactored": {
+        "time_ms": 0.0022,
+        "time_sd": 0.0001,
+        "time_ci95": 0.0,
+        "memory_kb": 133.0432,
+        "memory_sd": 0.0286,
+        "memory_ci95": 0.0178,
+        "energy_uj": 7.4073,
+        "energy_sd": 0.5064,
+        "energy_ci95": 0.3139,
+        "amplification_k": 50000
+      }
+    },
+    "R005_comprehension": {
+      "unoptimized": {
+        "time_ms": 0.046,
+        "time_sd": 0.0031,
+        "time_ci95": 0.0019,
+        "memory_kb": 136.1937,
+        "memory_sd": 0.0253,
+        "memory_ci95": 0.0157,
+        "energy_uj": 181.7106,
+        "energy_sd": 40.4396,
+        "energy_ci95": 25.0647,
+        "amplification_k": 15126
+      },
+      "refactored": {
+        "time_ms": 0.0378,
+        "time_sd": 0.0017,
+        "time_ci95": 0.0011,
+        "memory_kb": 136.1994,
+        "memory_sd": 0.0286,
+        "memory_ci95": 0.0178,
+        "energy_uj": 132.1208,
+        "energy_sd": 18.2865,
+        "energy_ci95": 11.3341,
+        "amplification_k": 23069
+      }
+    }
+  },
+  "green_rules": {},
+  "baselines": {
+    "P01": {
+      "topsis_winner": {
+        "time_ms": 0.0156,
+        "time_sd": 0.0015,
+        "time_ci95": 0.0009,
+        "memory_kb": 133.2335,
+        "memory_sd": 0.0745,
+        "memory_ci95": 0.0462,
+        "energy_uj": 61.0126,
+        "energy_sd": 21.1066,
+        "energy_ci95": 13.082,
+        "amplification_k": 1544
+      },
+      "greedy_tau0": {
+        "time_ms": 0.0156,
+        "time_sd": 0.0015,
+        "time_ci95": 0.0009,
+        "memory_kb": 133.2335,
+        "memory_sd": 0.0745,
+        "memory_ci95": 0.0462,
+        "energy_uj": 61.0126,
+        "energy_sd": 21.1066,
+        "energy_ci95": 13.082,
+        "amplification_k": 1544
+      },
+      "random_pick_expected": {
+        "time_ms": 0.1046,
+        "energy_uj": 325.95
+      },
+      "topsis_vs_random_gain_pct": 81.28,
+      "topsis_vs_worst_gain_pct": 92.63
+    }
+  }
+}

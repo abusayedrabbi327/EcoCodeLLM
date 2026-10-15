@@ -2,50 +2,55 @@
 # Git Ignore Configuration for EcoCode-LLM Public Showcase
 # ============================================================
 
-# ===== Environment Variables & Secrets (CRITICAL) =====
+# ===== API Keys & Secrets (CRITICAL SECURITY) =====
 .env
-.env.*
-!.env.example
+**/.env
+*.env
 *.key
 *.pem
 
-# ===== Python & Bytecode =====
+# ===== Python & Virtual Environments =====
 __pycache__/
+**/__pycache__/
 *.py[cod]
-*$py.class
-*.so
-*.egg-info/
+.pytest_cache/
+**/.pytest_cache/
+.venv/
+venv/
+env/
 dist/
 build/
-*.egg
-.pytest_cache/
-venv/
-.venv/
-env/
+*.egg-info/
+VIVA_CODEBASE_DOCUMENTATION.md
+**/outputs/temp/
+**/outputs/logs/
+**/outputs/reports/
+**/outputs/rewritten_code/
+**/outputs/generated_code/
 
-# ===== Source Code & Execution Scripts (Protected) =====
-/ecocode/
-/app.py
-/gui.py
-/run_ui.py
-*.py
-
-# ===== Research Drafts, Internal Reports & Test Prompts =====
-/paper_sections.md
-/pre_technical_report.md
-/technical_project_report.md
-/demo_test_prompts_and_codes.md
-/DIAGRAMS.md
-
-# ===== Test Suites, Benchmarks & Outputs =====
-/tests/
-/benchmarks/
+# ===== Private Academic & Draft Folders (DO NOT UPLOAD) =====
 /outputs/
+/01_product_codebase/ecocode_llm_adapter/
+/02_research_paper/
+/03_presentation_slides/
+/04_documentation_and_notes/
+/05_archive_older_versions/
+/paper final draft/
+/figures/
+/docs/
+
+# ===== LaTeX Temporary Files & Local PDFs =====
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
 
 # ===== IDE & OS Artifacts =====
 .vscode/
 .idea/
-*.swp
-*.swo
 .DS_Store
 Thumbs.db
