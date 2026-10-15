@@ -1,22 +1,41 @@
-STRICT ACADEMIC RESEARCH & PROPRIETARY LICENSE
+STRICT ACADEMIC RESEARCH, PEER-REVIEW & PROPRIETARY LICENSE
 
-Copyright (c) 2026 Abu Sayed Rabbi. All Rights Reserved.
+Copyright (c) 2026 Abu Sayed Rabbi, Maisha Samiha, and Md. Motaharul Islam.
+Department of Computer Science and Engineering, United International University (UIU), Dhaka, Bangladesh.
+All Rights Reserved.
 
-This repository, its documentation, architectural specifications, designs, and associated research materials ("EcoCode-LLM") are the proprietary academic and intellectual property of the author.
+================================================================================
+IMPORTANT NOTICE: READ BEFORE ACCESSING, CLONING, OR EVALUATING THIS REPOSITORY
+================================================================================
 
-TERMS AND CONDITIONS:
+This software, source code, Abstract Syntax Tree (AST) refactoring rule specifications, benchmark test suites, hardware telemetry logs, architectural designs, and associated documentation ("EcoCode-LLM Framework and Artifacts") are the proprietary intellectual property of the authors.
 
-1. ACADEMIC REVIEW & REFERENCE ONLY:
-   Permission is hereby granted to view, review, and evaluate the materials contained in this repository solely for academic evaluation, peer review, and non-commercial research reference purposes.
+By accessing, cloning, viewing, or running any portion of this repository, you agree to be bound by the terms and conditions of this Strict License:
 
-2. RESTRICTIONS:
-   - NO REDISTRIBUTION: You may not distribute, sublicense, republish, mirror, sell, or rent any portion of this repository or its derivative works.
-   - NO COMMERCIAL USE: Commercial use of any methodology, architecture, algorithmic designs, or software implementations derived from this project is strictly prohibited without prior explicit written permission from the author.
-   - NO UNAUTHORIZED MODIFICATIONS: You may not create unauthorized derivative works, reverse engineer, or claim ownership of the underlying concepts or implementations.
+1. PERMITTED ACADEMIC EVALUATION & PEER REVIEW:
+   - Permission is granted solely to academic peer reviewers, journal/conference editors, university faculty evaluators, and bona fide academic researchers to inspect, execute, and verify the software for the express purpose of evaluating the scientific validity, reproducibility, and claims of the associated manuscript.
+   - Independent researchers may execute the benchmarking scripts for non-commercial academic replication and validation of the published results.
 
-3. ATTRIBUTION & CITATION:
-   Any academic citation, discussion, or reference to this project, framework, or methodology must include proper attribution and citation to:
-   "EcoCode-LLM: A Green AI Framework for Energy-Efficient Code Generation" by Abu Sayed Rabbi (United International University).
+2. STRICT PROHIBITION ON COMMERCIAL EXPLOITATION:
+   - No commercial use of any kind is permitted. You may not use, incorporate, adapt, license, sublicense, sell, rent, lease, monetize, or bundle any part of this software, its refactoring rules, its TOPSIS decision algorithm, or its architecture in any commercial product, software-as-a-service (SaaS) platform, developer tool, or business application without prior explicit written agreement from the copyright holders.
 
-4. DISCLAIMER:
-   THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY.
+3. PROHIBITION ON REDISTRIBUTION & RE-HOSTING:
+   - You may NOT redistribute, republish, mirror, re-host, upload to third-party public repositories, package into public package registries (e.g., PyPI, Conda), or distribute binary builds of this repository without prior explicit written consent from the authors.
+
+4. PROHIBITION ON ARTIFICIAL INTELLIGENCE TRAINING & MODEL MINING:
+   - The source code, AST transformation patterns, and hardware telemetry datasets contained herein may NOT be crawled, scraped, indexed, or used as training data, fine-tuning data, or evaluation datasets for any proprietary or open-weights commercial Artificial Intelligence (AI) or Machine Learning (ML) models without explicit written permission from the copyright holders.
+
+5. MANDATORY ATTRIBUTION & CITATION:
+   - Any scholarly, academic, or educational publication, thesis, report, presentation, or discussion that references, evaluates, or utilizes any methodology, code, or experimental findings from this repository MUST formally cite the original research paper:
+     "EcoCode-LLM: A Green AI Framework for Energy-Efficient Code Generation"
+     Authors: Abu Sayed Rabbi, Maisha Samiha, and Md. Motaharul Islam
+     Department of Computer Science and Engineering, United International University, Dhaka, Bangladesh (2026).
+
+6. MODIFICATIONS AND DERIVATIVE WORKS:
+   - Any modifications made for academic evaluation purposes remain subject to this license. You may not remove or alter any copyright, authorship, or license notices present in the source files.
+
+7. TERMINATION:
+   - Any violation of these terms automatically terminates your right to access and use the software. Upon termination, you must immediately delete all local copies and cached data derived from this repository.
+
+8. DISCLAIMER OF WARRANTY & LIMITATION OF LIABILITY:
+   THE SOFTWARE AND DATA ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS, UNITED INTERNATIONAL UNIVERSITY, OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
