@@ -1,4 +1,4 @@
-# 🌿 EcoCode-LLM: A Green AI Framework for Energy-Efficient Code Generation & Optimization
+#  EcoCode-LLM: A Green AI Framework for Energy-Efficient Code Generation & Optimization
 
 [![Python Version](https://img.shields.io/badge/Python-3.10%20%7C%203.12%20%7C%203.14-blue.svg)](https://www.python.org/)
 [![Hardware Telemetry](https://img.shields.io/badge/Telemetry-Intel%20RAPL%20MSR%20%2B%20TDP-brightgreen.svg)]()
@@ -10,14 +10,14 @@ EcoCode-LLM is a Green AI middleware framework designed to make **energy consump
 
 ---
 
-## 📌 Quick Links for Reviewers & Supervisors
-* 📑 **[Peer Reviewer & Supervisor Validation Guide](REVIEWER_GUIDE.md)** — Step-by-step claim-to-evidence audit, table reproduction, and physics verification.
-* 🔬 **[Reproducibility & Replication Guide](REPRODUCIBILITY.md)** — Two-tier replication guide, hardware requirements, and baseline benchmarks.
-* ⚖️ **[Strict Academic Research License](LICENSE)** — Terms of use, non-commercial research clause, and attribution requirements.
+##  Quick Links for Reviewers & Supervisors
+*  **[Peer Reviewer & Supervisor Validation Guide](REVIEWER_GUIDE.md)** — Step-by-step claim-to-evidence audit, table reproduction, and physics verification.
+*  **[Reproducibility & Replication Guide](REPRODUCIBILITY.md)** — Two-tier replication guide, hardware requirements, and baseline benchmarks.
+*  **[Strict Academic Research License](LICENSE)** — Terms of use, non-commercial research clause, and attribution requirements.
 
 ---
 
-## 💡 The Core Problem & Motivation
+##  The Core Problem & Motivation
 
 Modern code-generation frontier models (such as GPT-4, Claude, and Qwen) focus heavily on functional pass rates and syntactic validity. However, benchmark studies demonstrate that:
 1. **Functional correctness does not imply resource efficiency:** Generated code frequently exhibits quadratic loops ($O(N^2)$), redundant allocations, or unbuffered I/O.
@@ -28,7 +28,7 @@ EcoCode-LLM bridges this gap through a closed-loop dual-mode middleware architec
 
 ---
 
-## 🏛️ Framework Architecture
+##  Framework Architecture
 
 ```text
                                ┌────────────────────────┐
@@ -71,7 +71,7 @@ EcoCode-LLM bridges this gap through a closed-loop dual-mode middleware architec
 
 ---
 
-## 🚀 Complete Running Process & Getting Started
+##  Complete Running Process & Getting Started
 
 ### 1. Prerequisites & Installation
 
@@ -192,7 +192,7 @@ sudo python benchmarks/linux_rapl_benchmark_suite.py
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```text
 EcoCodeLLM/
@@ -236,7 +236,7 @@ EcoCodeLLM/
 
 ---
 
-<!-- ## 📜 Academic Citation & Attribution
+<!-- ##  Academic Citation & Attribution
 
 If you use EcoCode-LLM in your academic research or reference its methodology, please cite:
 
